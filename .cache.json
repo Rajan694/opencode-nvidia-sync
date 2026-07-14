@@ -1,0 +1,20 @@
+{
+  "lastRun": "2026-07-14T06:57:08.541Z",
+  "working": [
+    "meta/llama-3.2-1b-instruct",
+    "nvidia/nemotron-mini-4b-instruct",
+    "mistralai/mistral-small-4-119b-2603",
+    "meta/llama-3.2-3b-instruct",
+    "openai/gpt-oss-20b",
+    "nvidia/llama-3.1-nemoguard-8b-topic-control",
+    "mistralai/mistral-nemotron",
+    "nvidia/gliner-pii",
+    "nvidia/nemotron-3-nano-30b-a3b",
+    "meta/llama-guard-4-12b",
+    "nvidia/llama-3.1-nemotron-nano-vl-8b-v1",
+    "stockmark/stockmark-2-100b-instruct",
+    "nvidia/nemotron-content-safety-reasoning-4b",
+    "upstage/solar-10.7b-instruct",
+    "microsoft/phi-4-mini-instruct"
+  ]
+}

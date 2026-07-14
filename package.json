@@ -1,0 +1,12 @@
+{
+  "name": "opencode-nvidia-sync",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "p-limit": "^6.2.0"
+  }
+}
