@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "rescan": "node src/index.js --force-rescan"
   },
   "dependencies": {
     "dotenv": "^16.5.0",

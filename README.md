@@ -44,6 +44,12 @@ Run
 npm start
 ```
 
+Force a full rescan and ignore cached results:
+
+```bash
+npm run rescan
+```
+
 Preview without changing OpenCode config:
 
 ```bash

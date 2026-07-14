@@ -13,6 +13,7 @@ const CACHE_TTL_MS = 3 * 60 * 60 * 1000;
 const parsedTopModels = Number(process.env.TOP_MODELS || 15);
 const TOP_MODELS = Number.isFinite(parsedTopModels) && parsedTopModels > 0 ? Math.floor(parsedTopModels) : 15;
 const DRY_RUN = process.argv.includes('--dry-run');
+const FORCE_RESCAN = process.argv.includes('--force-rescan');
 
 function renderProgress(completed, total, currentModel = '') {
   const width = 28;
@@ -50,7 +51,8 @@ async function main() {
 
   const cache = await loadCache(CACHE_PATH);
   const modelSet = new Set(models);
-  const cachedModels = isCacheFresh(cache, CACHE_TTL_MS) ? cache.working.filter((model) => modelSet.has(model)) : [];
+  const cachedModels =
+    !FORCE_RESCAN && isCacheFresh(cache, CACHE_TTL_MS) ? cache.working.filter((model) => modelSet.has(model)) : [];
 
   let whitelist = cachedModels.slice(0, TOP_MODELS);
 
@@ -80,11 +82,9 @@ async function main() {
     working.slice(0, TOP_MODELS).forEach((m) => {
       console.log(`✅ ${m.model.padEnd(45)} ${m.latency}ms`);
     });
-
     if (working.length > TOP_MODELS) {
       console.log(`\nSkipped ${working.length - TOP_MODELS} slower working models`);
     }
-
     failed.forEach((m) => console.log(`❌ ${m.model.padEnd(45)} ${m.error || ''}`));
 
     console.log('\n');
